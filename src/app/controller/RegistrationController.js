@@ -13,6 +13,7 @@ class RegistrationController {
         const { page = 1 } = req.query;
 
         const registrations = await Registration.findAll({
+            attributes: ['id', 'start_date', 'end_date', 'price', 'active'],
             order: ['start_date'],
             limit: 20,
             offset: (page - 1) * 20,
